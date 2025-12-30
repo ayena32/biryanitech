@@ -1,5 +1,6 @@
 # ===Fart Technologies===
-This website is the official website for **fart technologies**.
+This website is the official website for **Fart Technologies**.
+
 Farts are actually one of the most misunderstood things in human history, and i'm tired of pretending they're not elite. society wants us to believe farts are bad, embarrassing or something we should fear. But use your brain for a second. if you're farting your body is literally working as intended. no farts is when you should start praying.
 First of all, farts are a health check. your stomach is basically saying yeah i'm processing this food, relax. Holding in a fart is actual psychological torture, like your whole brain shuts down, your'e not thinking about maths or life or dreams, you're just fighting demons internally. the second you let it out its peace, clarity, enlightenment. suddenly you can hear colors again
 Second, farts are free stress relief. people pay for therapy, meanwhile your body just goes pfffft and fixes the problem. that release does something to your soul. its like your organs sigh in relief. anyone who says they dont feel better after farting is 101% lying.
