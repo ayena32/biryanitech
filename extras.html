@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fart Technologies</title>
+    <title>Biryani Tech</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <meta property="og:image" content="https://biryani-tech.pages.dev/fartlogo.png">
+    <meta property="og:title" content="Biryani Tech">
+    <meta property="og:description" content="150+ tech tips, downloads, articles and reviews">
     <link rel="stylesheet" href="stylefart.css">
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-    <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.3/core.css">
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-    <script type="module" src="https://pyscript.net/releases/2025.2.3/core.js"></script>
+    <script type="module" src="https://pyscript.net/releases/2024.3.1/core.js"></script>
 </head>
 <body>
     <div id="top">
-        <a href="https://farts.pages.dev">
+        <a href="https://biryani-tech.pages.dev">
         <img id="logo" src="fartlogo.png" />
         </a>
         <h1>
             Extras/Games
         </h1>
-       <a href="https://farts.pages.dev" style="border: 5px ridge firebrick; height: 80px; width: 60px">
+       <a href="https://biryani-tech.pages.dev" style="border: 5px ridge firebrick; height: 80px; width: 60px">
             <img src="home.png" style="height: 80px; width: 60px;" />
         </a>
         <a href="articles.html" style="border: 5px ridge orangered; height: 80px; width: 60px">
@@ -69,6 +71,77 @@
             <button class="btn-equal" id="equal">=</button>
         </div>
     </div>
+    <div class="game-container">
+    <h1>Guess the Number</h1>
+    <p>Guess a number from 1-1000.</p>
+
+    <input type="number" id="user_guess" placeholder="Enter guess" />
+
+    <button id="submit_btn" py-click="check_guess">Guess</button>
+    <button id="reset_btn" py-click="reset_game" style="background-color: #6c757d; display: none; margin-top: 10px;">Reset</button>
+
+    <div id="result"></div>
+
+    <div id="loading" class="loading">Loading python..</div>
+</div>
+
+<script type="py">
+    import random
+    from pyscript import document
+
+    target_number = random.randint(1, 1000)
+    attempts = 0
+
+    document.getElementById("loading").style.display = "none"
+
+    def check_guess(event):
+
+        global target_number, attempts
+
+        input_element = document.getElementById("user_guess")
+        result_element = document.getElementById("result")
+        submit_btn = document.getElementById("submit_btn")
+        reset_btn = document.getElementById("reset_btn")
+
+        user_input = input_element.value
+
+        if not user_input:
+            result_element.innerText = "Please enter a number"
+            result_element.style.color = "yellow"
+            return
+
+        guess = int(user_input)
+        attempts += 1
+
+        if guess == target_number:
+            result_element.innerText = f"Yay that is correct! You found it in {attempts} tries."
+            result_element.style.color = "green"
+
+            submit_btn.style.display = "none"
+            reset_btn.style.display = "inline-block"
+
+        elif guess < target_number:
+            result_element.innerText = f"{guess} is too low. Try again."
+            result_element.style.color = "yellow"
+            input_element.value = ""
+
+        else:
+            result_element.innerText = f"{guess} is too high. Try again."
+            result_element.style.color = "yellow"
+            input_element.value = ""
+
+    def reset_game(event):
+
+        global target_number, attempts
+
+        target_number = random.randint(1, 1000)
+        attempts = 0
+
+        document.getElementById("user_guess").value = ""
+        document.getElementById("result").innerText = ""
+        document.getElementById("submit_btn").style.display = "inline-block"
+        document.getElementById("reset_btn").style.display = "none"
+</script>
         <iframe src="https://forms.office.com/r/WfxYAsqhwq" style="width: 100%; min-height: 750px;"></iframe>
         <h6>powered by <a href="https://forms.office.com">Microsoft Forms</a></h6>
         <br/>
@@ -214,11 +287,60 @@
             }
         #notes {
             font-size: 10px;
+        body {
+    font-family: Arial;
+}
+.game-container {
+    background: #9074f2;
+    color: white;
+    border: 15px ridge #7300ff;
+    padding: 2rem;
+    text-align: center;
+    width: 350px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    width: 70%;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    min-height: 1.5em;
+}
+
+.loading {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 10px;
+}
     </style>
 
 </body>
 
 </html>
+
 
 
 
